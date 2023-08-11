@@ -37,7 +37,7 @@
         @endif
     @else
 
-<title>Wishmed</title>
+<title>Vedyas - Pure & Finest Ayurveda</title>
 
 @endif
 
@@ -881,11 +881,20 @@ function closeNav() {
                         });
                 });
         });
+
+
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 400) {
+        $(".site-header--sticky").addClass("active");
+    } else {
+        $(".site-header--sticky").removeClass("active");
+    }
+});
+
+
     </script>
-
-
-
-
 
 
 </body>

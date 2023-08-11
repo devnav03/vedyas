@@ -9098,7 +9098,140 @@ figcaption .bg-des {
 #pro_sld1 .slick-slide{
     display: block;
 } 
+#pro_sld1 p{
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+#pro_sld1 h3{
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+#pro_sld1 .mt-4.text-uppercase.font-weight-bold {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600 !important;
+    font-size: 15px;
+    margin-top: 5px !important;
+}
+#shopify-section-1590595440196 .section-block {
+    border-top: 2px solid;
+    margin-top: 50px;
+}
+#shopify-section-1590595440196 .section-block h6{
+  font-weight: 500;
+  font-size: 18px;
+  font-family: 'Raleway', sans-serif;
+}
+#brand_slider .owl-nav{
+  display: block !important;
+}
+#brand_slider .owl-next {
+    position: absolute;
+    right: -30px;
+    top: 45px;
+}
+#brand_slider .owl-next span,
+#brand_slider .owl-prev span{
+    font-size: 40px;
+}
+#brand_slider .owl-prev {
+    position: absolute;
+    left: -30px;
+    top: 45px;
+}
+#brand_slider.owl-theme .owl-nav [class*=owl-]:hover{
+    background: transparent !important;
+    color: #000;
+}
+#our-brand-logo{
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+footer.site-footer{
+    background: #bad1c2;
+}
+footer.site-footer img{
+    max-height: 100px;
+    float: left;
+}
+footer.site-footer .site-footer__list li{
+  list-style: none;
+  text-align: left;
+  margin-bottom: 9px;
+}
+footer.site-footer .col-lg-3{
+  margin-top: 40px;
+}
+footer.site-footer .col-lg-3 h3 {
+    text-transform: capitalize;
+    margin-bottom: 20px;
+    font-weight: 300;
+    text-align: left;
+    font-family: 'Raleway', sans-serif;
+    color: #000;
+    font-size: 34px;
+}
+footer.site-footer .site-footer__list li a{
+    font-family: 'Raleway', sans-serif;
+}
 
+@media(max-width: 767px){
+.header-head .col-md-6 .text-sm-center.text-center  {
+    display: none;
+}
+#hebottom .d-block.d-lg-none.toggle-menu-mobile.col-3 {
+    display: none !important;
+}
+.site-header__logo img {
+    width: 90px;
+    float: left;
+}
+#hebottom .col-sm-12.col-md-4.col-6.d-flex.align--center.col-logo {
+    padding-left: 0px;
+    justify-content: left !important;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+#hebottom .header--acount.d-none.d-lg-inline-block.font-family-1 {
+    display: block !important;
+}
+#hebottom .col-sm-3.col-md-4.col-3.header-top__right {
+    flex: 0 0 70%;
+    max-width: 70%;
+    padding-right: 0px;
+}
+.site-header__cart .svg-cart,
+.site-header__search-pop .svg-search {
+    width: 18px;
+    height: 18px;
+}
+.site-header__link{
+    padding: 6px;
+    font-size: 14px;
+}
+.site-header__link.mr-3 {
+    margin-right: 8px !important;
+}
+
+
+
+
+
+
+}
+
+.site-header--sticky.active .site-nav__link {
+    font-size: 13px;
+    padding: 10px 10px;
+}
+.site-header--sticky.active {
+    box-shadow: 0 0 1px rgb(0 0 0 / 20%);
+    transition: all ease .3s;
+    position: fixed;
+    width: 100%;
+}
+.site-header--sticky.active .site-header__logo img {
+    width: 120px;
+}
 
 
 

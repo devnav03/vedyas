@@ -605,6 +605,29 @@ Route::group(['middleware' => 'auth', 'after' => 'no-cache'], function () {
             Route::any('suppliers/drop/{id?}', ['as' => 'suppliers.drop',
                 'uses' => 'SupplierController@drop']);
             // Suppliers route end
+
+            
+            // Ingredients route start
+            Route::resource('ingredients','IngredientController', [
+                'names' => [
+                    'index'     => 'ingredients.index',
+                    'create'    => 'ingredients.create',
+                    'store'     => 'ingredients.store',
+                    'edit'      => 'ingredients.edit',
+                    'update'    => 'ingredients.update',
+                ],
+                'except' => ['show','destroy']
+            ]);
+            
+            Route::any('ingredients/paginate/{page?}', ['as' => 'ingredients.paginate',
+                'uses' => 'IngredientController@Paginate']);
+            Route::any('ingredients/action', ['as' => 'ingredients.action',
+                'uses' => 'IngredientController@Action']);
+            Route::any('ingredients/toggle/{id?}', ['as' => 'ingredients.toggle',
+                'uses' => 'IngredientController@Toggle']);
+            Route::any('ingredients/drop/{id?}', ['as' => 'ingredients.drop',
+                'uses' => 'IngredientController@drop']);
+            // Ingredients route end
             
 
             // Product route start

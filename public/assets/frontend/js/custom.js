@@ -293,11 +293,12 @@ $('#trending_products').owlCarousel({
                 items:3
             },
             1200:{
-                items:4
+                items:3
             }
         }
     });
-     $('#pro_sld').owlCarousel({
+    
+    $('#pro_sld').owlCarousel({
         autoplay: true,
         smartSpeed: 900,
         loop: true,
@@ -326,6 +327,37 @@ $('#trending_products').owlCarousel({
             }
         }
     });
+
+    $('#brand_slider').owlCarousel({
+        autoplay: true,
+        smartSpeed: 900,
+        loop: true,
+        margin: 0,
+        nav: true,
+        dots: false,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:2,
+                nav: false
+            },
+            575:{
+                items:2,
+                nav: false
+            },
+            768:{
+                items:4,
+                nav: false
+            },
+            992:{
+                items:6
+            },
+            1200:{
+                items:8
+            }
+        }
+    });
+
 // SLIDER 1 JS ENDS
 
 function showDiv5(){   

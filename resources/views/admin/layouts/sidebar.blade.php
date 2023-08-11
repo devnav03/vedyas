@@ -63,12 +63,16 @@
             <span class="nav-text"> Products </span>
             <i class="icon-angle-right"></i><i class="icon-angle-down"></i>
             </a>
-            <ul>
-                <li><a class="subnav-text" href="{!! route('category.create') !!}"> Add Category </a> </li>
-                <li><a class="subnav-text" href="{!! route('category.index') !!}"> Category List </a> </li>
-                <li><a class="subnav-text" href="{!! route('product.create') !!}"> Add Product </a> </li>
-                <li><a class="subnav-text" href="{!! route('product.index') !!}"> Product List </a></li>
-            </ul>
+        <ul>
+        <li><a class="subnav-text" href="{!! route('product.create') !!}"> Add Product </a> </li>
+        <li><a class="subnav-text" href="{!! route('product.index') !!}"> Product List </a></li>
+        <li><a class="subnav-text" href="{!! route('category.create') !!}"> Add Category </a> </li>
+        <li><a class="subnav-text" href="{!! route('category.index') !!}"> Category List </a> </li>
+
+        <li><a class="subnav-text" href="{!! route('ingredients.create') !!}"> Add Ingredients </a> </li>
+        <li><a class="subnav-text" href="{!! route('ingredients.index') !!}"> Ingredients List </a> </li>
+
+        </ul>
         </li>
         <li class="has-subnav"> 
             <a href="javascript:;">

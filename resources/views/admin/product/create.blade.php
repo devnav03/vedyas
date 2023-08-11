@@ -149,6 +149,16 @@ bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
                                     </div>
                                     </div>
 
+                                    <div class="col-md-4" style="margin-top: 20px;">
+                                         <div class="form-group"> 
+                                            <label>Size<span>*</span></label>
+                                            {!! Form::text('size', null, array('class' => 'form-control validation', 'required' => 'true')) !!}
+                                            @if($errors->has('size'))
+                                             <span class="text-danger">{{$errors->first('size')}}</span>
+                                            @endif
+                                        </div> 
+                                    </div>
+
                                     <!-- <div class="col-md-4" style="margin-top: 20px;">
                                          <div class="form-group"> 
                                             <label>SRP</label>
@@ -278,6 +288,25 @@ bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
                                             {!! Form::textarea('product_description', null, array('class' => 'form-control')) !!}
                                             @if ($errors->has('product_description'))
                                              <span class="text-danger">{{$errors->first('product_description')}}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12" style="margin-top: 20px;">
+                                        <div class="form-group"> 
+                                            <label for="benefits" class="">Benefits<span>*</span></label>
+                                            {!! Form::textarea('benefits', null, array('class' => 'form-control')) !!}
+                                            @if ($errors->has('benefits'))
+                                             <span class="text-danger">{{$errors->first('benefits')}}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12" style="margin-top: 20px;">
+                                        <div class="form-group"> 
+                                            <label for="how_to_use" class="">How To Use<span>*</span></label>
+                                            {!! Form::textarea('how_to_use', null, array('class' => 'form-control')) !!}
+                                            @if ($errors->has('how_to_use'))
+                                             <span class="text-danger">{{$errors->first('how_to_use')}}</span>
                                             @endif
                                         </div>
                                     </div>
