@@ -8,13 +8,13 @@
     <div class="grids">       
         <div class="row">
             <div class="col-md-12">
-                <h1 class="page-header">Supplier  <a class="btn btn-sm btn-primary pull-right" href="{!! route('suppliers.index') !!}"> <i class="fa fa-solid fa-arrow-left"></i> All Suppliers</a></h1>
+                <h1 class="page-header">Brand  <a class="btn btn-sm btn-primary pull-right" href="{!! route('suppliers.index') !!}"> <i class="fa fa-solid fa-arrow-left"></i> All Brands</a></h1>
                 
                 <div class="panel panel-widget forms-panel">
                     <div class="forms">
                         <div class="form-grids widget-shadow" data-example-id="basic-forms"> 
                             <div class="form-title">
-                                <h4>Supplier Information</h4>                        
+                                <h4>Brand Information</h4>                        
                             </div>
                             <div class="form-body">
                                 @if($route == 'suppliers.create')
@@ -37,7 +37,7 @@
                                 <div class="row">
                                     <div class="col-md-6" style="margin-top: 20px;">
                                         <div class="form-group"> 
-                                            {!! Form::label('image', lang('Customer Image'), array('class' => '')) !!}
+                                            {!! Form::label('image', lang('Logo'), array('class' => '')) !!}
                                             @if(!empty($result->image))
                                         <!--     {!! Form::file('image', array()) !!} -->
                                             <input name="image" type='file' accept="image/png, image/jpeg" id="imgInp" />

@@ -18,13 +18,11 @@ use Illuminate\Http\Request;
 
 class CategoryController  extends  Controller{
  
-    public function  index()
-    {
+    public function  index() {
         return view('admin.category.index');
     }
   
-    public function create()
-    {
+    public function create() {
         $parent_cats = Category::where('status', 1)->where('parent_id', Null)->get();
 
         return view('admin.category.create', compact('parent_cats'));
@@ -65,31 +63,39 @@ class CategoryController  extends  Controller{
 
 
 
-            if(isset($inputs['image']) or !empty($inputs['image']))
-            {
+            // if(isset($inputs['image']) or !empty($inputs['image']))
+            // {
+            //     $image_name = rand(100000, 999999);
+            //     $fileName = '';
+            //     if($file = $request->hasFile('image')) 
+            //     {
+            //         $file = $request->file('image');
+            //         $img_name = $file->getClientOriginalName();
+            //         $image_resize = Image::make($file->getRealPath()); 
+            //         $image_resize->resize(250, 348);
+            //         $fileName = $image_name.$img_name;
+            //         $image_resize->save(public_path('/uploads/category_images/' .$fileName));                      
+            //     }
+            //     $fname ='/uploads/category_images/';
+            //     $image = $fname.$fileName;
+            // }
+            // else{
+            //     $image = null;
+            // }
+
+            if(isset($inputs['image']) or !empty($inputs['image'])) {
                 $image_name = rand(100000, 999999);
                 $fileName = '';
-                if($file = $request->hasFile('image')) 
-                {
-                    $file = $request->file('image');
+                if($file = $request->hasFile('image')) {
+                    $file = $request->file('image') ;
                     $img_name = $file->getClientOriginalName();
-                    $image_resize = Image::make($file->getRealPath()); 
-                    $image_resize->resize(250, 348);
                     $fileName = $image_name.$img_name;
-                    $image_resize->save(public_path('/uploads/category_images/' .$fileName));                      
+                    $destinationPath = public_path().'/uploads/category_images/' ;
+                    $file->move($destinationPath, $fileName);
                 }
                 $fname ='/uploads/category_images/';
                 $image = $fname.$fileName;
-       
-                // $filename = $request->file('image');
-
-            // $zip = new \ZipArchive;
-            // $res = $zip->open(public_path('/uploads/category_images/'.$filename));
-            // $extractpath = public_path('/uploads/category_images/');
-            // $zip->extractTo($extractpath);
-            // $zip->close();
-            }
-            else{
+            } else{
                 $image = null;
             }
 
@@ -125,23 +131,40 @@ class CategoryController  extends  Controller{
 
         $inputs = $request->all();
         try {
-            if(isset($inputs['image']) or !empty($inputs['image'])) {
 
+            // if(isset($inputs['image']) or !empty($inputs['image'])) {
+
+            //     $image_name = rand(100000, 999999);
+            //     $fileName = '';
+            //     if($file = $request->hasFile('image')) {
+            //         $file = $request->file('image') ;
+            //         $img_name = $file->getClientOriginalName();
+            //         $image_resize = Image::make($file->getRealPath()); 
+            //         $image_resize->resize(250, 348);
+            //         $fileName = $image_name.$img_name;
+            //         $image_resize->save(public_path('/uploads/category_images/' .$fileName));
+            //     }
+            //     $fname ='/uploads/category_images/';
+            //     $image = $fname.$fileName;
+       
+            // }
+            // else{
+            //     $image = $result->image;
+            // }
+
+            if(isset($inputs['image']) or !empty($inputs['image'])) {
                 $image_name = rand(100000, 999999);
                 $fileName = '';
                 if($file = $request->hasFile('image')) {
                     $file = $request->file('image') ;
                     $img_name = $file->getClientOriginalName();
-                    $image_resize = Image::make($file->getRealPath()); 
-                    $image_resize->resize(250, 348);
                     $fileName = $image_name.$img_name;
-                    $image_resize->save(public_path('/uploads/category_images/' .$fileName));
+                    $destinationPath = public_path().'/uploads/category_images/' ;
+                    $file->move($destinationPath, $fileName);
                 }
                 $fname ='/uploads/category_images/';
                 $image = $fname.$fileName;
-       
-            }
-            else{
+            } else{
                 $image = $result->image;
             }
 

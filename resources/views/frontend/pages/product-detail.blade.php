@@ -1,6 +1,14 @@
 @extends('frontend.layouts.app')
 @section('content')
 
+  <section class="bredcrum">
+    <div class="container">
+      <ul>
+        <li><a href="{{ route('home') }}" style="color:#ff6600;">Home</a></li>
+        <li>&nbsp;/&nbsp;{{ $product->name }}</li>
+      </ul>
+    </div>
+  </section>
 
   <div class="clearfix"></div>
   <!-- DETAILS-MAIN STRATS -->
@@ -42,8 +50,6 @@
                     </span>
                 </div>
 
-                <div class="row">
-                  <div class="col-md-3">
                 <div id="featured-slide1">
                 <ul id="gal1" class="pl-0 mb-0">
                 <a class="big-img" href="{!! asset($product->featured_image) !!}">
@@ -64,8 +70,6 @@
                   @endif
                 </ul>
               </div>
-              </div>
-              </div>
                 
             @else  
          
@@ -81,23 +85,24 @@
           <div class="col-lg-6">
                 <div class="details-heading">
                 <h2 class="product-name">{{ $product->name }}</h2>
+                <div class="short_description"> 
+                  @if($product->description != '<br>')
+                    {!! $product->description !!}
+                  @endif  
+                </div>
                 @if($product->product_type != 2)
                 <div class="price_box">
-                <p><del>${{ $product->regular_price }}</del> ${{ $product->offer_price }}</p>
+                <p><del>&#8377;{{ $product->regular_price }}</del> &#8377;{{ $product->offer_price }}</p>
                 </div>
                 @else
                 @php
                 $group_price = get_group_price($product->id);
                 @endphp
                 <div class="price_box">
-                <p>${{ number_format($group_price['min_price'], 2) }} - ${{ number_format($group_price['max_price'], 2) }}</p>
+                <p>&#8377;{{ number_format($group_price['min_price'], 2) }} - &#8377;{{ number_format($group_price['max_price'], 2) }}</p>
                 </div>
                 @endif
-                <div class="short_description"> 
-                  @if($product->description != '<br>')
-                    {!! $product->description !!}
-                  @endif  
-                </div>
+                
           
                 <div class="clearfix"></div>
                 @if($product->product_type == 2)           
@@ -126,7 +131,7 @@ if(\Auth::check()){
     $s_price = $configure_product->offer_price;
 }
 @endphp
-      <span><bdi><span>$</span>{{ round($s_price, 2) }}</bdi></span>
+      <span><bdi><span>&#8377;</span>{{ round($s_price, 2) }}</bdi></span>
 
     </td>
     </tr>  
@@ -149,11 +154,10 @@ if(\Auth::check()){
                 @else
                 <div class="add-to-cart">
                     @if($product->quantity != 0)
-                    <h5>In Stock</h5>
                     <div class="clearfix"></div>
-                    <h6 style="float: left; margin-right: 15px; color: #6d6d6d; font-weight: 400; margin-top: 13px;">Quantity:</h6>
-                    <input class="qtybox qty{{ $product->id }}" type="number" value="1">
-                    <button onclick="addToCart(this.value)" value="{{ $product->id }}" class="single_add_to_cart_button btn">Add to Cart <i class="fa-solid fa-plus"></i></button>
+                    <!-- <h6 style="float: left; margin-right: 15px; color: #6d6d6d; font-weight: 400; margin-top: 13px;">Quantity:</h6> -->
+                    <input class="qtybox qty{{ $product->id }}" type="number" min="0" value="1">
+                    <button onclick="addToCart(this.value)" value="{{ $product->id }}" class="single_add_to_cart_button btn">Add to Cart</button>
                   <!--     @if(Auth::id()) 
                       @php get_wishlist($product->id) @endphp
                         @if(empty(get_wishlist($product->id)))
@@ -194,8 +198,13 @@ if(\Auth::check()){
               </div>
            </div>
         </div>
+ </div>
+      </div>
+      </div>
+  </section>
 
 <section class="product-desc-area pb-60">
+  <div class="container">
     <div class="row">
 <div class="col-xl-12 col-lg-12 mb-30">
   <div class="woocommerce-tabs wc-tabs-wrapper">
@@ -204,13 +213,25 @@ if(\Auth::check()){
         <li class="nav-item description_tab active" id="tab-title-description" role="tab" aria-controls="tab-description">
         <a class="nav-link active" data-toggle="tab" role="tab" aria-controls="medical-equipment" aria-selected="false" href="#tab-description">Description</a>
         </li>
-        <li class="nav-item reviews_tab" id="tab-title-reviews" role="tab" aria-controls="tab-reviews"><a class="nav-link" data-toggle="tab" role="tab" aria-controls="medical-equipment" aria-selected="false" href="#tab-reviews">Reviews ({{ count($reviews) }})</a>
-        </li>
+
+        <li class="nav-item reviews_tab" id="tab-title-how-to-use" role="tab" aria-controls="tab-how-to-use"><a class="nav-link" data-toggle="tab" role="tab" aria-controls="medical-equipment" aria-selected="false" href="#tab-how-to-use">How to Use</a></li>
+
+        <li class="nav-item reviews_tab" id="tab-title-Benefits" role="tab" aria-controls="tab-Benefits"><a class="nav-link" data-toggle="tab" role="tab" aria-controls="medical-equipment" aria-selected="false" href="#tab-Benefits">Benefits</a></li>
+
+        <li class="nav-item reviews_tab" id="tab-title-ingredients" role="tab" aria-controls="tab-ingredients"><a class="nav-link" data-toggle="tab" role="tab" aria-controls="medical-equipment" aria-selected="false" href="#tab-ingredients">Ingredients</a></li>
+
+        <li class="nav-item reviews_tab" id="tab-title-reviews" role="tab" aria-controls="tab-reviews"><a class="nav-link" data-toggle="tab" role="tab" aria-controls="medical-equipment" aria-selected="false" href="#tab-reviews">Reviews ({{ count($reviews) }})</a></li>
+
+
       </ul>
     </div>
 <div class="prod_des panel entry-content wc-tab active" id="tab-description" role="tabpanel" aria-labelledby="tab-title-description">      
 <p>{!! $product->product_description !!}</p>
-              </div>
+</div>
+
+<div class="prod_des panel entry-content wc-tab active" id="tab-Benefits" role="tabpanel" aria-labelledby="tab-title-Benefits">      
+{!! $product->how_to_use !!}
+</div>
 
   <div class="prod_des review" id="tab-reviews">
   <div id="reviews" class="woocommerce-Reviews">
@@ -377,38 +398,27 @@ if(\Auth::check()){
   </div>
   </div>
   </div>
-
-
-        <!-- <div class="col-xl-4 col-lg-4">
-          <div class="product-desc-imgmb-30">
-            <a href="#">
-                <img src="https://sspl23.in/wishmed/wp-content/uploads/2020/09/pr-banner.png" alt="banner">
-              </a>
-          </div>
-        </div> -->
         
             
     </div>
-
+</div>
 </section>
 
 
 
-         @if($product->product_description)
-         <section class="description_detail" style="display: none;">
-
-        <h4>Description</h4>
-        {!! $product->product_description !!}
-
-  </section>
-
-
-
-@endif
+        @if($product->product_description)
+        <section class="description_detail" style="display: none;">
+          <div class="container">
+            <h4>Description</h4>
+            {!! $product->product_description !!}
+          </div>
+        </section>
+        @endif
 
   
 <section class="new_products rel_pro" id="category-list">
-<h2>Related Products</h2>
+<div class="container">  
+<h2>You May Also Like</h2>
 <div class="clearfix"></div>
 <div id="new_products_related" class="owl-carousel owl-theme">
 @foreach($new_products as $new_product)	
@@ -429,19 +439,19 @@ if(\Auth::check()){
 }
 @endphp
 
-<p>@if($new_product->regular_price > $s_price)<del>${{ $new_product->regular_price }}</del> @endif ${{ $s_price }} </p>
+<p>@if($new_product->regular_price > $s_price)<del>&#8377;{{ $new_product->regular_price }}</del> @endif &#8377;{{ $s_price }} </p>
 
 @else
 @php
 $group_price = get_group_price($new_product->id);
 @endphp
 
-<p>${{ number_format($group_price['min_price'], 2) }} - ${{ number_format($group_price['max_price'], 2) }} </p>
+<p>&#8377;{{ number_format($group_price['min_price'], 2) }} - &#8377;{{ number_format($group_price['max_price'], 2) }} </p>
 
 @endif
 
 </div>
-<div class="product-action">
+<!-- <div class="product-action">
 
                   @if(Auth::id()) 
                   @php get_wishlist($new_product->id) @endphp
@@ -453,21 +463,15 @@ $group_price = get_group_price($new_product->id);
                   @endif
                     <a href="{{ route('productDetail', $new_product->url) }}" class="action-btn button"><i class="fa-solid fa-cart-shopping"></i></a>
                     <a href="{{ route('productDetail', $new_product->url) }}" class="action-btn button"><i class="fa-solid fa-magnifying-glass"></i></a>
-                  </div>
+                  </div> -->
 </div>
 </div>
 </div>
 @endforeach
 </div>
+</div>
 </section>
   
-      </div>
-      </div>
-      </div>
-  </section>
- 
-
-  <!-- INDEX-MAIN ENDS -->
 
   <div class="clearfix"></div>
  

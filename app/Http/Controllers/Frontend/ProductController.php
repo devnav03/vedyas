@@ -42,7 +42,7 @@ try {
         ->leftjoin('categories as c3', 'c3.id', '=','products.sub_sub_category') 
         ->leftjoin('categories as c4', 'c4.id', '=','products.four_lavel') 
         ->leftjoin('categories as c5', 'c5.id', '=','products.five_lavel') 
-        ->select('products.name', 'products.url', 'products.featured_image', 'products.id', 'products.regular_price', 'products.description', 'categories.name as category', 'categories.url as cat_url', 'categories.id as cat_id', 'products.product_description', 'c2.name as cat2', 'c2.url as url2', 'c3.name as cat3', 'c3.url as url3', 'c4.name as cat4', 'c4.url as url4', 'c5.name as cat5', 'c5.url as url5', 'products.offer_price', 'products.quantity', 'products.sku', 'products.product_type')
+        ->select('products.name', 'products.url', 'products.featured_image', 'products.id', 'products.regular_price', 'products.description', 'categories.name as category', 'categories.url as cat_url', 'categories.id as cat_id', 'products.product_description', 'c2.name as cat2', 'c2.url as url2', 'c3.name as cat3', 'c3.url as url3', 'c4.name as cat4', 'c4.url as url4', 'c5.name as cat5', 'c5.url as url5', 'products.offer_price', 'products.quantity', 'products.sku', 'products.product_type', 'products.how_to_use')
         ->where('products.status', 1)
         ->where('products.url', $url)
         ->first(); 
@@ -54,9 +54,8 @@ try {
         $configure_products = Product::where('status', 1)->whereIn('id', $simple_id)->select('id', 'name', 'sku', 'offer_price')->get();
     }
 
- 
 
-    $similars = Product::where('products.status', 1)->where('category_id', $current_product->category_id)->select('name', 'url', 'thumbnail', 'id', 'regular_price', 'offer_price', 'quantity')->limit(15)->get();
+    $similars = Product::where('products.status', 1)->where('category_id', $current_product->category_id)->where('id', '!=', $current_product->id)->select('name', 'url', 'thumbnail', 'id', 'regular_price', 'offer_price', 'quantity')->limit(15)->get();
 
     $reviews = \DB::table('reviews')
     ->join('users', 'reviews.user_id', '=','users.id')

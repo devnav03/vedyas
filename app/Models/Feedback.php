@@ -22,7 +22,7 @@ class Feedback extends Model {
         $rules['name'] = 'required';
         $rules['designation'] = 'required';
         $rules['comment'] = 'required';
-        $rules['image'] = 'required';
+        // $rules['image'] = 'required';
         return \Validator::make($inputs, $rules);
     }
 

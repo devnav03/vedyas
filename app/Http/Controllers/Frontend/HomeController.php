@@ -45,8 +45,7 @@ use App\PasswordHash;
 
 class HomeController extends Controller{
 
-    public function __construct(Guard $auth, User $registrar)
-    {
+    public function __construct(Guard $auth, User $registrar) {
         $this->auth = $auth;
         //$this->middleware('guest', ['except' => 'getLogout']);
     }
@@ -126,8 +125,6 @@ class HomeController extends Controller{
       $simple_ids = ConfigureProduct::pluck('simple_id')->toarray();
       // dd($simple_ids);
       $products = Product::where('status', 1)->whereNotIn('id', $simple_ids)->select('id', 'name', 'url', 'quantity', 'offer_price', 'regular_price', 'thumbnail', 'featured_image', 'product_type')->orderby('id', 'desc')->paginate(30);
-
-
       return view('frontend.pages.shop', compact('Categorys', 'products'));
     }
 
@@ -136,15 +133,14 @@ class HomeController extends Controller{
         return view('frontend.pages.forms_page', compact('forms'));
     }
 
-
     public function blogs_details($url){
       $blog = Blog::where('url', $url)->where('status', 1)->select('title', 'description', 'image', 'category_id', 'id')->first(); 
       if (!$blog) {
         abort(401);
       }
+
       $BlogCategory = BlogCategory::where('id', $blog->category_id)->first();
       $keyword = Blog::where('url', $url)->select('meta_title', 'meta_description')->first(); 
-
       $latest_blogs = Blog::where('status', 1)->where('id', '!=', $blog->id)->select('title', 'url', 'image')->paginate(5);
 
       return view('frontend.pages.blog_detail', compact('blog', 'keyword', 'BlogCategory', 'latest_blogs'));
@@ -175,10 +171,19 @@ class HomeController extends Controller{
 
     public function index() {
     try {
-
+        
+        $simple_ids = ConfigureProduct::pluck('simple_id')->toarray();
         $sliders = Slider::where('status', 1)->select('image')->get();
+        $categorys = Category::where('status', 1)->where('parent_id', NULL)->select('name', 'id', 'url', 'image')->get();
+        $brands = Supplier::where('status', 1)->select('image')->get();
+        $feedbacks = Feedback::where('status', 1)->select('name', 'designation', 'comment')->get();
+        $feat_products = Product::where('status', 1)->where('is_featured', 1)->select('featured_image', 'name', 'url', 'meta_description')->inRandomOrder()->paginate(8);
 
-      return view('frontend.home', compact('sliders'));
+        $second_category = 3; 
+        $products = Product::select('featured_image', 'name', 'id', 'url', 'status', 'product_type')->whereNotIn('id', $simple_ids)->where(['status' => 1])->whereRaw("(category_id = $second_category or sub_category = $second_category or sub_sub_category = $second_category or four_lavel = $second_category or five_lavel = $second_category or six_lavel = $second_category or seven_lavel = $second_category)")->inRandomOrder()->paginate(16);
+
+        return view('frontend.home', compact('sliders', 'categorys', 'brands', 'feedbacks', 'feat_products', 'products'));
+
     } catch (\Exception $exception) {
      //dd($exception);
             return back();

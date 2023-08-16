@@ -13,7 +13,7 @@
     <td class="text-center" style="vertical-align: middle;">{!! pageIndex($index++, $page, $perPage) !!}</td>
     <td>{!! $detail->name !!}</td>
     <td class="text-center" style="vertical-align: middle;">
-         <a href="{{ route('suppliers.toggle', $detail->id) }}" title="@if($detail->status == 0) Deactive @else Active @endif">            
+         <a href="javascript:void(0);" class="toggle-status" data-message="{!! lang('messages.change_status') !!}" data-route="{!! route('suppliers.toggle', $detail->id) !!}" title="@if($detail->status == 0) Deactive @else Active @endif">            
             {!! Html::image('images/' . $detail->status . '.gif') !!}
         </a>
     </td>

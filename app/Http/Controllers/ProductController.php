@@ -228,13 +228,18 @@ class ProductController  extends  Controller {
                           $image_name1 = rand(100000, 999999);
                           $fileName1 = '';
                               foreach($inputs['gallery'] as $file1){
-                                  $img_name1 = $file1->getClientOriginalName();
-                                  $image_resize1 = Image::make($file1->getRealPath()); 
-                                  $image_resize1->resize(612, 852);
-                                  $fileName1 = $image_name1.$img_name1;
-                                  $image_resize1->save(public_path('/uploads/product_images/' .$fileName1)); 
+                                $image_name = rand(100000, 999999);
+                               $fileName = '';
+
+                            $img_name = $file->getClientOriginalName();
+                            $fileName = $image_name.$img_name;
+                            $destinationPath = public_path().'/uploads/category_images/' ;
+                            $file->move($destinationPath, $fileName);
+                
+                            $fname ='/uploads/category_images/';
+                            $image = $fname.$fileName;
                                   ProductImage::create([
-                                      'product_image'  =>  '/uploads/product_images/'.$fileName1,
+                                      'product_image'  =>  $image,
                                       'product_id'    => $product,
 
                                   ]);
@@ -428,18 +433,23 @@ class ProductController  extends  Controller {
 
             if(isset($inputs['gallery']) or !empty($inputs['gallery'])) {
                 $image_name1 = rand(100000, 999999);
-                $fileName1 = '';
-                    foreach($inputs['gallery'] as $file1){
-                        $img_name1 = $file1->getClientOriginalName();
 
-                        $image_resize1 = Image::make($file1->getRealPath()); 
-                        $image_resize1->resize(612, 852);
+                    foreach($inputs['gallery'] as $file){
 
-                        $fileName1 = $image_name1.$img_name1;
-                        $image_resize1->save(public_path('/uploads/product_images/' .$fileName1));
+                       $image_name = rand(100000, 999999);
+                       $fileName = '';
+
+                    $img_name = $file->getClientOriginalName();
+                    $fileName = $image_name.$img_name;
+                    $destinationPath = public_path().'/uploads/category_images/' ;
+                    $file->move($destinationPath, $fileName);
+        
+                    $fname ='/uploads/category_images/';
+                    $image = $fname.$fileName;
+
 
                         ProductImage::create([
-                            'product_image'  =>  '/uploads/product_images/'.$fileName1,
+                            'product_image' =>  $image,
                             'product_id'    => $id,
 
                         ]);
@@ -451,7 +461,7 @@ class ProductController  extends  Controller {
                  ->with('success', lang('messages.updated', lang('product.product'))); 
 
         } catch (\Exception $exception) {
-         // dd($exception);
+            //dd($exception);
             return redirect()->route('product.edit', [$id])
                 ->withInput()
                 ->with('error', lang('messages.server_error'));

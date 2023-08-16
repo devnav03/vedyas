@@ -36,7 +36,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group"> 
-                                        <label for="link" class="">Designation</label>
+                                        <label for="link" class="">Title</label>
                                         {!! Form::text('designation', null, array('class' => 'form-control', 'required' => 'true')) !!}
                                         </div>
                                     </div>
@@ -48,17 +48,14 @@
                                         </div>
                                     </div>
                                    </div>
-                                    
                                 
-                                <div class="row">
+                             <!--    <div class="row">
                                     <div class="col-md-6" style="margin-top: 20px;">
                                         <div class="form-group"> 
                                             {!! Form::label('image', lang('Customer Image'), array('class' => '')) !!}
                                             @if(!empty($result->image))
-                                        <!--     {!! Form::file('image', array()) !!} -->
                                             <input name="image" type='file' accept="image/png, image/jpeg" id="imgInp" />
                                             @else
-                                          <!--   {!! Form::file('image', array('required' => 'true')) !!} -->
                                             <input name="image" type='file' accept="image/png, image/jpeg" required="true" id="imgInp" />
                                             @endif
                                             <img id="blah" style="max-width: 55%;" src="#" alt="" />
@@ -69,8 +66,7 @@
                                             </div>
                                         @endif
                                     </div>     
-
-                                    </div>
+                                </div> -->
                                     
                                 
                                 <div class="row">

@@ -1,25 +1,15 @@
 @extends('frontend.layouts.app')
 @section('content')
-  
-    <div class="klb-shop-breadcrumb breadcrumb-area pt-125 pb-125">
-      <div class="container">
-        <div class="klb-breadcrumb-wrapper">
-          <div class="row">
-            <div class="col-xl-12">
-              <div class="breadcrumb-text">
-                  <h2>Category: {{ $category->name }}</h2>
-              </div>
-            </div>
-          </div>
-          <nav class="woocommerce-breadcrumb">
-          <ul class="breadcrumb-menu">
-            <li class="fc_child"><a href="{{ route('home') }}">Home</a></li>
-            <li><a class="bl_color">{{ $category->name }}</a></li>
-          </ul>
-          </nav>             
-        </div>
-      </div>
+
+  <section class="bredcrum">
+    <div class="container">
+      <ul>
+        <li><a href="{{ route('home') }}" style="color:#ff6600;">Home</a></li>
+        <li>&nbsp;/&nbsp;{{ $category->name }}</li>
+      </ul>
     </div>
+  </section>
+
   <div class="clearfix"></div>
 
 <div id="add-cart"></div>
@@ -29,9 +19,9 @@ $cname = $category->name;
 @endphp
   <!-- PRODUCT-LISTING-PANEL STARTS -->
     <section class="product-listing-panel">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-3 col-md-3 d-md-block d-none">
+          <div class="col-lg-3 col-md-3" style="display: none;">
             <aside>
               <div class="accordion" id="accordionExample">        
 <div class="card">
@@ -81,10 +71,10 @@ $cname = $category->name;
             </aside>
           </div>
           
-          <div class="col-lg-9 col-md-9" id="category-list">
+          <div class="col-lg-12 col-md-12" id="category-list">
             <div class="row">
-              <div class="col-md-4 offset-md-8">
-                <select onchange="SortFilter(this);" id="sortID" class="form-control">
+              <div class="col-md-3 offset-md-9">
+                <select onchange="SortFilter(this);" id="sortID" class="form-control" style="    background: #f4f4f4; border: 0px; height: 45px; border-radius: 0px; font-size: 15px;">
                   <option value="">Sort By Latest</option>
                   <option value="1">New Arrivals</option>
                   <option value="2">High Price to Low</option>
@@ -98,11 +88,11 @@ $cname = $category->name;
             @if($products)
               @foreach($products as $product)
                 @if($product->status == 1)
-                <div class="col-lg-4 col-md-6 col-6 mt-md-0 mt-5">
+                <div class="col-lg-3 col-md-4 col-6 mt-md-0 mt-5">
                   <div class="prod-box">
               <!--     @if($product->regular_price > $product->offer_price)<span class="product-tag">{{ round(100-($product->offer_price/$product->regular_price)*100) }}%</span>@endif -->
-                  <a href="{{ route('productDetail', $product->url) }}"><img src="{!! asset($product->featured_image) !!}" style="max-height: 235px;" class="img-fluid mx-auto d-block" alt="{{ $product->name }}"></a>
-                  <div class="txt mt-3" style="padding: 6px;">
+                  <a href="{{ route('productDetail', $product->url) }}"><img src="{!! asset($product->featured_image) !!}" style="max-height: 300px;" class="img-fluid mx-auto d-block" alt="{{ $product->name }}"></a>
+                  <div class="txt mt-3" style="padding: 6px;text-align: center;">
                   <h6 class="mb-3"><a href="{{ route('productDetail', $product->url) }}">{{ $product->name }}</a></h6>
 
 @if($product->product_type == 1)
@@ -113,17 +103,16 @@ if(\Auth::check()){
     $s_price = $product->offer_price;
 }
 @endphp
-      <p>@if($product->regular_price > $s_price)<del>${{ $product->regular_price }}</del>@endif ${{ $s_price }}</p>
-
+      <p>@if($product->regular_price > $s_price)<del>&#8377;{{ $product->regular_price }}</del>@endif &#8377;{{ $s_price }}</p>
 @else
 @php
 $group_price = get_group_price($product->id);
 @endphp
-<p>${{ number_format($group_price['min_price'], 2) }} - ${{ number_format($group_price['max_price'], 2) }} </p>
+<p>&#8377;{{ number_format($group_price['min_price'], 2) }} - &#8377;{{ number_format($group_price['max_price'], 2) }} </p>
 @endif
                   <!--   <button onclick="addToCart(this.value)" value="{{ $product->id }}" class="btn">Add to Cart</button> -->
                   </div>
-                  <div class="product-action">
+                  <!-- <div class="product-action">
 
                   @if(Auth::id()) 
                   @php get_wishlist($product->id) @endphp
@@ -133,11 +122,9 @@ $group_price = get_group_price($product->id);
                   <a title="Remove From Wishlist" href="{{ route('deleteWishlist', $product->id) }}" class="action-btn button"><i class="fa-solid fa-heart"></i></a>
                   @endif
                   @endif
-
-
                     <a href="{{ route('productDetail', $product->url) }}" class="action-btn button"><i class="fa-solid fa-cart-shopping"></i></a>
                     <a href="{{ route('productDetail', $product->url) }}" class="action-btn button"><i class="fa-solid fa-magnifying-glass"></i></a>
-                  </div>
+                  </div> -->
                 </div>
                 </div>
                 @endif

@@ -6,29 +6,24 @@
           <div class="rte-setting">
             <img src="{!! asset('assets/frontend/images/logo.png') !!}">
           </div>
-              </div></div>
+              </div>
+            </div>
+@php
+$par_cats = get_par_cat();
+@endphp            
         <div class="col-lg-3 col-md-6 ">
           <div class="site-footer__section">
             <h3 class="h3 site-footer__section-title">Our Categories</h3>
             <ul class="site-footer__list">
+            @foreach($par_cats as $par_cat)
               <li class="site-footer__list-item">
-                        <a href="#">Skin Care</a>
-                      </li>
-                      <li class="site-footer__list-item">
-                        <a href="#">Hair Care</a>
-                      </li><li class="site-footer__list-item">
-                        <a href="#">Bath</a>
-                      </li><li class="site-footer__list-item">
-                        <a href="#">Body</a>
-                      </li>
-                      <li class="site-footer__list-item">
-                        <a href="#">Gifting</a>
-                      </li>
-                      <li class="site-footer__list-item">
-                        <a href="#">Wellness</a>
-                      </li>
+                  <a href="{{ route('categoryDetail', $par_cat->url) }}">{{ $par_cat->name }}</a>
+              </li>
+            @endforeach        
                     </ul>
-                </div></div><div class="col-lg-3 col-md-6 ">
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6 ">
                   <div class="site-footer__section">
                     <h3 class="h3 site-footer__section-title">Quick Links</h3>
                     <ul class="site-footer__list">
@@ -44,7 +39,8 @@
                         <a href="#">FAQs</a>
                       </li><li class="site-footer__list-item">
                         <a href="#">Blog</a>
-                      </li></ul>
+                      </li>
+                    </ul>
                 </div>
                 </div>
 

@@ -68,10 +68,8 @@
         <li><a class="subnav-text" href="{!! route('product.index') !!}"> Product List </a></li>
         <li><a class="subnav-text" href="{!! route('category.create') !!}"> Add Category </a> </li>
         <li><a class="subnav-text" href="{!! route('category.index') !!}"> Category List </a> </li>
-
         <li><a class="subnav-text" href="{!! route('ingredients.create') !!}"> Add Ingredients </a> </li>
         <li><a class="subnav-text" href="{!! route('ingredients.index') !!}"> Ingredients List </a> </li>
-
         </ul>
         </li>
         <li class="has-subnav"> 
@@ -197,7 +195,7 @@
         </li>
 
         <li class="has-subnav"> 
-            <a href="{!! route('suppliers.index') !!}"><i class="fa fa-pen" aria-hidden="true"></i><span class="nav-text">Suppliers</span></a>
+            <a href="{!! route('suppliers.index') !!}"><i class="fa fa-pen" aria-hidden="true"></i><span class="nav-text">Brands</span></a>
         </li>
         
         <li class="has-subnav">

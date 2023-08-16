@@ -71,41 +71,21 @@
 <div id="shopify-section-7ce7ddf1-336d-4daa-8a51-6d77cabc587e" class="shopify-section index-section">
 <div class="customstyle7ce7ddf1-336d-4daa-8a51-6d77cabc587e banner-theme-text aos-init aos-animate" data-aos="">
 <div class="container-fluid">
+
     <div class="section-block">
     	<div style="text-transform: none !important;" class="subtop text-center text-top aos-init aos-animate" data-aos="" data-aos-duration="500">
     		<h3><p style="font-family: 'Raleway', sans-serif; color: white; background-color: black; font-size: 16px; margin-bottom: 10px; padding: 5px; display: inline-block;">Kudrat-Range of Fresh Oils</p></h3>
     </div>
 
-    <div class="row 7ce7ddf1-336d-4daa-8a51-6d77cabc587e ">
+    <div class="row 7ce7ddf1-336d-4daa-8a51-6d77cabc587e">
+      @foreach($products as $product)  
         <div class="customCol col-md-3">
-        <figure class="hv-image-saturate text-center  d-flex flex-column">
-        	<a href="#"><img src="{!! asset('assets/frontend/images/Anti_Hair_fall_Hair_Oil.jpg') !!}" style="width: 100%; height: 100%;" class="transition lazyloaded"></a><figcaption class="figcaption--7ce7ddf1-336d-4daa-8a51-6d77cabc587e-16799205969c3f6c9f-0 py-4"><p><b>Anti Hair Fall Hair Oil </b></p>
-            <a href="#" class="btn btn-theme gradient-theme"><span class="px-2">Shop Now</span></a>
-        </figcaption>		
-        </figure>
-        </div>
-        
-        <div class="customCol col-md-3">
-          <figure class="hv-image-saturate text-center  d-flex flex-column"><a href="/products/hair-oil-kudrat-damage-repair-hair-oil"><img src="{!! asset('assets/frontend/images/Damage_Repair_Hair_Oil_.jpg') !!}" style="width: 100%; height: 100%;" class="transition lazyloaded"></a><figcaption class="figcaption--7ce7ddf1-336d-4daa-8a51-6d77cabc587e-16799205969c3f6c9f-1 py-4"><p><b>Damage Repair Hair Oil </b></p>
-            <a href="#" class="btn btn-theme gradient-theme"><span class="px-2">Shop Now</span></a></figcaption>		
+          <figure class="hv-image-saturate text-center  d-flex flex-column"><a href="{{ route('productDetail', $product->url) }}"><img src="{!! asset($product->featured_image) !!}" style="width: 100%; height: 100%;" class="transition lazyloaded"></a><figcaption class="figcaption--7ce7ddf1-336d-4daa-8a51-6d77cabc587e-16799205969c3f6c9f-1 py-4"><p style="min-height: 58px;"><b>{{ $product->name }}</b></p>
+            <a href="{{ route('productDetail', $product->url) }}" class="btn btn-theme gradient-theme"><span class="px-2">Shop Now</span></a></figcaption>		
           </figure>
         </div>
+      @endforeach
         
-        <div class="customCol col-md-3">
-          <figure class="hv-image-saturate text-center  d-flex flex-column"><a href="#"><img src="{!! asset('assets/frontend/images/Anti_Dandruff_Hair_Oil.jpg') !!}" style="width: 100%; height: 100%;" class="transition lazyloaded"></a><figcaption class="figcaption--30991bb9-0794-4f24-85ce-e70bbe7f73b9 py-4"><p><b>Anti Dandruff Hair Oil </b></p>
-           <a href="#" class="btn btn-theme gradient-theme">
-                <span class="px-2">Shop Now</span>
-              </a>
-          </figcaption>		
-          </figure>
-        </div>
-        
-        <div class="customCol col-md-3">
-          <figure class="hv-image-saturate text-center  d-flex flex-column"><a href="#"><img src=" {!! asset('assets/frontend/images/Non_Strickly_Hair_Oil.jpg') !!}" style="width: 100%; height: 100%;" class="transition lazyloaded"></a><figcaption class="figcaption--f8631ae0-4731-4912-9580-a246807a9f34 py-4"><p><b>Non Sticky Hair Oil</b></p>
-            <a href="#" class="btn btn-theme gradient-theme"><span class="px-2">Shop Now</span></a>
-          </figcaption>		
-          </figure>
-        </div>
         </div>
     </div>
   </div>
@@ -122,25 +102,17 @@
     	<h3><p style="font-family: 'Raleway', sans-serif; color: white; background-color: black; font-size: 16px; margin-bottom: 10px; padding: 5px; display: inline-block;">Summer Must Haves</p></h3>
     </div>
 
-
         <div id="pro_sld" class="row owl-carousel owl-theme">	
-
-            <div class="col brand-item carousel__slide-wrapper--5a009818-4a4d-47e4-b8fa-cfd12d9df789-16800884469b016440-4 slick-slide slick-active" style="width: 336px;">
-            <a href="#" class="" tabindex="0"><img style="width: 100%; height: 100%; border-radius: 0px;" class="transition lazyloaded" src="{!! asset('assets/frontend/images/Sandalwood-saffron_night_cream_400x.jpg') !!}" alt=""></a>
-            <div>
-              <p style="font-weight: 600; margin-top: 15px;font-size: 15px;">Sandalwood &amp; Saffron Night Cream</p>
-              <p style="font-weight: normal; font-size: 14px;">Healing night cream with vitamins, antioxidants, omega fatty acids. Repairs, brightens, promotes skin healing </p>
-            </div>
-        </div>
-
-        <div class="col brand-item carousel__slide-wrapper--5a009818-4a4d-47e4-b8fa-cfd12d9df789-16800884469b016440-5 slick-slide slick-active" data-slick-index="5" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide15" style="width: 336px;">
-            <a href="#" class="" tabindex="0">
-            	<img style="width: 100%; height: 100%; border-radius: 0px;" class="transition lazyloaded" src="{!! asset('assets/frontend/images/Non_Strickly_Hair_Oil_1_400x.jpg') !!}" alt=""></a>
-            	<div>
-              	<p style="font-weight: 600; margin-top: 15px;font-size: 15px;">Kudrat Summer Non-Sticky Hair Oil</p>
-              	<p style=" font-weight: normal; font-size: 14px;">Revive hair with herbal oil, Non-greasy, nourishing blend with essential oils &amp; herbs for soft, smooth, shiny locks </p>
-            </div>
-        </div>
+          @foreach($feat_products as $feat_product)
+          <div class="col brand-item carousel__slide-wrapper--5a009818-4a4d-47e4-b8fa-cfd12d9df789-16800884469b016440-4 slick-slide slick-active" style="width: 336px;">
+              <a href="{{ route('productDetail', $feat_product->url) }}" class="" tabindex="0"><img style="width: 100%; height: 100%; border-radius: 0px;" class="transition lazyloaded" src="{!! asset($feat_product->featured_image) !!}" alt=""></a>
+              <div>
+                <p style="font-weight: 600; margin-top: 15px;font-size: 15px;">{{ $feat_product->name }}</p>
+                <p style="font-weight: normal; font-size: 14px;">{{ $feat_product->meta_description }}</p>
+              </div>
+          </div>
+        @endforeach
+       
       </div>
   </div>
   </div>
@@ -156,104 +128,25 @@
     		<h3><p style="font-family: 'Raleway', sans-serif; color: white; background-color: black; font-size: 16px; margin-bottom: 10px; padding: 5px; display: inline-block;">Our Categories</p></h3>
     	</div>
     	<div class="row e7db2e60-5c81-4ca7-8334-9b497aad2308 ">
-        <div class="customCol col-md-3 aos-init aos-animate" data-aos="" data-aos-duration="1000" style="padding-top: 1vh; padding-bottom: 1vh; padding-left: 1vh; padding-right: 1vh;">
-            <figure style="width: 100%; height: 100%;" class="banner-theme hv-image-saturate banner-theme-mid banner-theme-center text-center  banner-theme-e7db2e60-5c81-4ca7-8334-9b497aad2308-166737299654d6fec3-0"><img src="{!! asset('assets/frontend/images/Category_Banner_Face_Care_1920x.jpg') !!}" class="transition lazyloaded" alt="" style="width: 100%; height: 100%;">
-            	<figcaption class="figcaption--e7db2e60-5c81-4ca7-8334-9b497aad2308-166737299654d6fec3-0">
-            		<div class="position-relative">
-                    <div class="bg-des"></div>
-                    <div class="position-relative" style="z-index: 3;">
-                      <p style="font-family: Arial, sans-serif; font-size: 20px;">Skin Care </p>
-                    </div>
-                  </div>
-                </figcaption>
-                <a href="#"></a>
-            </figure>
-          </div>
-          
+      
+        @foreach($categorys as $category)  
           <div class="customCol col-md-3 aos-init aos-animate" data-aos="" data-aos-duration="1000" style="padding-top: 1vh; padding-bottom: 1vh; padding-left: 1vh; padding-right: 1vh;">
             <figure style="width: 100%; height: 100%;" class="banner-theme hv-image-saturate banner-theme-mid banner-theme-center text-center  banner-theme-e7db2e60-5c81-4ca7-8334-9b497aad2308-166737299654d6fec3-1">
-            	<img src="{!! asset('assets/frontend/images/Category_Banner_Body_Care_1920x.jpg') !!}" class="transition lazyloaded" alt="" style="width: 100%; height: 100%;">
+            	<img src="{!! asset($category->image) !!}" class="transition lazyloaded" alt="" style="width: 100%; height: 100%;">
             	<figcaption class="figcaption--e7db2e60-5c81-4ca7-8334-9b497aad2308-166737299654d6fec3-1">
             		<div class="position-relative">
                     <div class="bg-des"></div>
                     <div class="position-relative" style="z-index: 3; font-family: var(--g-font-2) !important;">
-                      <p style="font-family: Arial, sans-serif; font-size: 20px;">Body Care </p>
+                      <p style="font-family: Arial, sans-serif; font-size: 20px;">{{ $category->name }}</p>
                     </div>
                   </div>
                 </figcaption>
-                <a href="#"></a>
+                <a href="{{ route('categoryDetail', $category->url) }}"></a>
               </figure>
           </div>
-          
-          <div class="customCol col-md-3 aos-init aos-animate" data-aos="" data-aos-duration="1000" style="padding-top: 1vh; padding-bottom: 1vh; padding-left: 1vh; padding-right: 1vh;">
-            <figure style="width: 100%; height: 100%;" class="banner-theme hv-image-saturate banner-theme-mid banner-theme-center text-center  banner-theme-72a8572a-add6-4fda-8b9d-367434089b51">
-            	<img src="{!! asset('assets/frontend/images/Category_Banner_Hair_Care_1920x.jpg') !!}" class="transition lazyloaded"  alt="" style="width: 100%; height: 100%;">
-            	<figcaption class="figcaption--72a8572a-add6-4fda-8b9d-367434089b51"><div class="position-relative">
-                    <div class="bg-des"></div>
-                    <div class="position-relative" style="z-index: 3;">
-                      <p style="font-family: Arial, sans-serif; font-size: 20px;">Hair Care</p>
-                    </div>
-                  </div></figcaption><a href="#"></a></figure>
-          </div>
-          
-          <div class="customCol col-md-3 aos-init aos-animate" data-aos="" data-aos-duration="1000" style="padding-top: 1vh; padding-bottom: 1vh; padding-left: 1vh; padding-right: 1vh;">
-            <figure style="width: 100%; height: 100%;" class="banner-theme hv-image-saturate banner-theme-mid banner-theme-center text-center  banner-theme-b7a8b0bb-0b2c-4d3c-b5ee-ccae7d1faa6e"><img src="{!! asset('assets/frontend/images/Category_Banner_General_1920x.jpg') !!}" class="transition lazyloaded"  alt="" style="width: 100%; height: 100%;">
-            <figcaption class="figcaption--b7a8b0bb-0b2c-4d3c-b5ee-ccae7d1faa6e">
-            <div class="position-relative">
-            <div class="bg-des"></div>
-            <div class="position-relative" style="z-index: 3;">
-              <p style="font-family: Arial, sans-serif; font-size: 20px;">General</p>
-            </div>
-            </div>
-			    </figcaption>
-			    <a href="#"></a>
-			</figure>
-          </div>
-          
-          <div class="customCol col-md-3 aos-init aos-animate" data-aos="" data-aos-duration="1000" style="padding-top: 1vh; padding-bottom: 1vh; padding-left: 1vh; padding-right: 1vh;">
-            <figure style="width: 100%; height: 100%;" class="banner-theme hv-image-saturate banner-theme-mid banner-theme-center text-center  banner-theme-5ba52436-8ffa-4c70-ace1-c00048962530"><img src="{!! asset('assets/frontend/images/Category_Banner_Bath_Care_1920x.jpg') !!}" class="transition lazyloaded"  alt="" style="width: 100%; height: 100%;"><figcaption class="figcaption--5ba52436-8ffa-4c70-ace1-c00048962530"><div class="position-relative">
-                    <div class="bg-des"></div>
-                    <div class="position-relative" style="z-index: 3; font-family: var(--g-font-2) !important;">
-                      <p style="font-family: Arial, sans-serif; font-size: 20px;">Bath</p>
-                    </div>
-                  </div></figcaption><a href="#"></a></figure>
-          </div>
-          
-          <div class="customCol col-md-3 aos-init aos-animate" data-aos="" data-aos-duration="1000" style="padding-top: 1vh; padding-bottom: 1vh; padding-left: 1vh; padding-right: 1vh;">
-            <figure style="width: 100%; height: 100%;" class="banner-theme hv-image-saturate banner-theme-mid banner-theme-center text-center  banner-theme-bea5fba5-a60a-4a41-b067-e258964bd8b0"><img src="{!! asset('assets/frontend/images/Category_Banner_Wellness_1920x.jpg') !!}" class="transition lazyloaded"  alt="" style="width: 100%; height: 100%;"><figcaption class="figcaption--bea5fba5-a60a-4a41-b067-e258964bd8b0"><div class="position-relative">
-                    <div class="bg-des"></div>
-                    <div class="position-relative" style="z-index: 3; font-family: var(--g-font-2) !important;">
-                      <p style="font-family: Arial, sans-serif; font-size: 20px;">Wellness</p>
-                    </div>
-                  </div></figcaption><a href="#"></a></figure>
-          </div>
-          
-          <div class="customCol col-md-3 aos-init aos-animate" data-aos="" data-aos-duration="1000" style="padding-top: 1vh; padding-bottom: 1vh; padding-left: 1vh; padding-right: 1vh;">
-            <figure style="width: 100%; height: 100%;" class="banner-theme hv-image-saturate banner-theme-mid banner-theme-center text-center  banner-theme-9da11697-fd9e-4107-8c97-f2c103490f56"><img src="{!! asset('assets/frontend/images/Category_Banner_Immunity_Care_1920x.jpg') !!}" class="transition lazyloaded" alt="" style="width: 100%; height: 100%;">
-            	<figcaption class="figcaption--9da11697-fd9e-4107-8c97-f2c103490f56">
-            	    <div class="position-relative">
-                    <div class="bg-des"></div>
-                    <div class="position-relative" style="z-index: 3;">
-                      <p style="font-family: Arial, sans-serif; font-size: 20px;">Immunity Care</p>
-                    </div>
-                    </div>
-                </figcaption>
-                <a href="#"></a>
-            </figure>
-          </div>
-          
-          <div class="customCol col-md-3 aos-init aos-animate" data-aos="" data-aos-duration="1000" style="padding-top: 1vh; padding-bottom: 1vh; padding-left: 1vh; padding-right: 1vh;">
-            <figure style="width: 100%; height: 100%;" class="banner-theme hv-image-saturate banner-theme-mid banner-theme-center text-center  banner-theme-8146ea3a-bf65-43f7-8061-775a40551a7a"><img src="{!! asset('assets/frontend/images/Category_Banner_Gifting_1920x.jpg') !!}" class="transition lazyloaded" alt="" style="width: 100%; height: 100%;">
-            <figcaption class="figcaption--8146ea3a-bf65-43f7-8061-775a40551a7a">
-            	<div class="position-relative">
-                    <div class="bg-des"></div>
-                    <div class="position-relative" style="z-index: 3; font-family: var(--g-font-2) !important;">
-                      <p style="font-family: Arial, sans-serif; font-size: 20px;">Gifting</p>
-                    </div>
-                  </div></figcaption>
-                  <a href="#"></a>
-            </figure>
-          </div></div>
+        @endforeach  
+
+        </div>
     </div>
   </div>
 </div>
@@ -300,12 +193,12 @@
     </div>
 
       <div id="pro_sld1" class="row owl-carousel owl-theme">   
-        
+        @foreach($feedbacks as $feedback)
           <div class="customCol col-md-12 quote__slide text-center">
             <div class="quote-wrap">
-              <h4>Highly effective</h4>
+              <h4>{{ $feedback->designation }}</h4>
               <div class=" py-2 ">
-                <p>Very rich and luxurious scrub that leaves the skin clean, moisturized, and velvety smooth. don't need a moisturizer after and keep smelling of sandalwood until hours after. Leaves skin ultra smooth afterwards, The smell lingers on very long. done wonders for my skin, best it remove the dead skin.</p>
+                <p>{{ $feedback->comment }}</p>
               </div>
             <ul class="rating">
               <li class="rated"></li>
@@ -314,44 +207,11 @@
               <li class="rated"></li>
               <li class="rated"></li>
             </ul>
-            <div class="mt-4 text-uppercase font-weight-bold">Surbhi</div>
+            <div class="mt-4 text-uppercase font-weight-bold">{{ $feedback->name }}</div>
             </div>
           </div>
-
-          <div class="customCol col-md-12 quote__slide text-center ">
-            <div class="quote-wrap">
-              <h4>Excellent</h4>
-              <div class=" py-2 ">
-                <p>I could feel the difference in just one month, amazing product.</p>
-              </div>
-              <ul class="rating">
-                <li class="rated"></li>
-                <li class="rated"></li>
-                <li class="rated"></li>
-                <li class="rated"></li>
-                <li class="rated"></li>
-              </ul>
-              <div class="mt-4 text-uppercase font-weight-bold">P Raj Rao</div>
-              
-            </div>
-          </div>
- 
-          <div class="customCol col-md-12 quote__slide text-center">
-            <div class="quote-wrap">
-              <h4>Superior quality</h4>
-              <div class=" py-2 ">
-                <p>I recently tried Ashpveda henna and indigo colour, and I must say they are quite different from the ones available in the market. The colors turned out to be incredibly natural and beautiful. I'm truly impressed with the results and would highly recommend these products</p>
-              </div>
-                <ul class="rating">
-                  <li class="rated"></li>
-                  <li class="rated"></li>
-                  <li class="rated"></li>
-                  <li class="rated"></li>
-                  <li class="rated"></li>
-                </ul>
-                  <div class="mt-4 text-uppercase font-weight-bold">Nidhi godika</div>
-            </div>
-          </div>
+        @endforeach
+    
 
     </div>
 </div>
@@ -459,47 +319,13 @@
 <div id="our-brand-logo">
     <div class="container">
       <div id="brand_slider" class="row owl-carousel owl-theme">  
-                          <div class="swiper-slide" role="group" aria-label="6 / 13" style="width: 132.857px; margin-right: 20px;">
-                            <div class="brand-logo">
-                              <img src="//www.ashpveda.com/cdn/shop/files/asset-6_35538b8d-7a4e-4fb9-83f2-195b213f697d.jpg?v=1688382225" alt="">
-                            </div> 
-                          </div>
-
-                          <div class="swiper-slide" role="group" aria-label="7 / 13" style="width: 132.857px; margin-right: 20px;">
-                            <div class="brand-logo">
-                              <img src="//www.ashpveda.com/cdn/shop/files/asset-7_d7e9aabe-2752-40ab-a584-490142264fac.jpg?v=1688382225" alt="">
-                            </div> 
-                          </div>
-
-                          <div class="swiper-slide" role="group" aria-label="8 / 13" style="width: 132.857px; margin-right: 20px;">
-                            <div class="brand-logo">
-                              <img src="//www.ashpveda.com/cdn/shop/files/asset-8_92c13cfa-5cf4-489c-a9e5-4fce9746d4e8.jpg?v=1688382225" alt="">
-                            </div> 
-                          </div>
-
-                          <div class="swiper-slide" role="group" aria-label="9 / 13" style="width: 132.857px; margin-right: 20px;">
-                            <div class="brand-logo">
-                              <img src="//www.ashpveda.com/cdn/shop/files/asset-9_6cd74c9e-3b26-43b2-af1b-d14cb97ac474.jpg?v=1688382196" alt="">
-                            </div> 
-                          </div>
-
-                          <div class="swiper-slide" role="group" aria-label="10 / 13" style="width: 132.857px; margin-right: 20px;">
-                            <div class="brand-logo">
-                              <img src="//www.ashpveda.com/cdn/shop/files/asset-10_dc927f3c-fb1f-417a-8648-7bdbb16d4da0.jpg?v=1688382196" alt="">
-                            </div> 
-                          </div>
-
-                          <div class="swiper-slide" role="group" aria-label="11 / 13" style="width: 132.857px; margin-right: 20px;">
-                            <div class="brand-logo">
-                              <img src="//www.ashpveda.com/cdn/shop/files/asset-11_ea7190dd-5229-4e32-a724-523b01a9d1e0.jpg?v=1688382231" alt="">
-                            </div> 
-                          </div>
-
-                          <div class="swiper-slide" role="group" aria-label="12 / 13" style="width: 132.857px; margin-right: 20px;">
-                            <div class="brand-logo">
-                              <img src="//www.ashpveda.com/cdn/shop/files/asset-12_248d7c9e-70b8-47f8-92bf-dcab8e7508b1.jpg?v=1688382196" alt="">
-                            </div> 
-                          </div>
+        @foreach($brands as $brand)
+          <div class="swiper-slide" role="group" aria-label="12 / 13" style="width: 132.857px; margin-right: 20px;">
+            <div class="brand-logo">
+              <img src="{!! asset($brand->image) !!}" alt="">
+            </div> 
+          </div>
+        @endforeach
     </div>
     </div>
 </div>

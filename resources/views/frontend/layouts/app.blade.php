@@ -893,8 +893,15 @@ $(window).scroll(function() {
     }
 });
 
+function toggleClassSearch(){
+    $("#form-search-header").addClass("show_search");
+}
+function toggleClassSearchREm(){
+    $("#form-search-header").removeClass("show_search");
+}
 
-    </script>
+
+</script>
 
 
 </body>
